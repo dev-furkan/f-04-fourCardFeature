@@ -1,0 +1,10 @@
+{
+  "name": "4-four-card-feature",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass style.scss style.css -w"
+  },
+  "author": "Furkan O",
+  "license": "MIT"
+}

@@ -1,0 +1,369 @@
+$col__header: hsl(207, 95%, 8%);
+$col__lead-title: hsla(232, 12%, 34%, 1);
+$col__supervisor: hsl(217, 100%, 61%);
+$col__team-builder: hsl(353, 86%, 54%);
+$col__karma: hsl(334, 100%, 50%);
+$col__calculator: #2a9d8f;
+
+$col__white: hsl(0, 0%, 100%);
+
+$box__shadow-btn: 0px 4px 4px rgba(0, 0, 0, .3);
+
+$br__radius: 0.5rem;
+
+// Font Props [+ includes sizes]
+$ff: 'Poppins', sans-serif;
+$fw__light:   200;
+$fw__regular: 400;
+$fw__medium:  600;
+
+$transition: all .5s ease-in-out;
+
+@mixin font($size, $weight, $color){
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+
+@keyframes iconRotate{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    50%{
+        transform: rotate(20deg);
+    }
+
+    75%{
+        transform: rotate(-20deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+// Furkan's custom reset
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: none;
+    overflow-wrap: break-word;
+  }
+  
+  a:link,
+  a:hover{
+      text-decoration: none;
+      display: inline-block;
+  }
+  
+  html, body {
+    height: 100%;
+    -webkit-user-select: none; /* webkit browsers */
+    -moz-user-select: none; /* firefox */
+    -ms-user-select: none; /* internet explorer */
+    user-select: none; /* standard syntax */
+
+  }
+  body,
+  main{
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, 
+  button, 
+  textarea, 
+  select {
+    font: inherit;
+  }
+  
+  table {
+      border-collapse: collapse;
+      border-spacing: 0;
+  }
+  
+  ol,
+  ul{
+      list-style: none;
+  }
+
+  body{
+    background-image: url(images/bg-mobile.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $col__header;
+    min-height: 3.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 3.125rem;
+    z-index: 2;
+
+    .creator{
+        display: flex;
+        position: absolute;
+        left: 30px;
+        justify-content: center;
+        align-items: center;
+        background: $col__white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+    
+        a{
+            transform: rotate(15deg);
+            font-size: xx-large;
+            color: $col__header;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.switch-theme__inner-container{
+    border-radius: 3px;
+    background: $col__white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 1.875rem; // 30px
+    width: 60px;
+    max-width: 5rem;
+    padding: 3px;
+    position: relative;
+    top: 0;
+    box-shadow: 0px 4px 4px $box__shadow-btn;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    .switch-theme__toggle-switch{
+        width: 25px;
+        min-height: 25px;
+        background-color: $col__header;
+        border-radius: 50%;
+        position: absolute;
+        left: 3px; // app.js left 32px onClick [innerC]
+        box-shadow: 0px 4px 4px $box__shadow-btn;
+    }
+    
+    img{
+        height: 1.25rem;
+    }
+}
+
+main{
+    position: relative;
+    padding: 85px 32px;
+    min-height: 100%;
+    font-family: $ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in;
+}
+
+.wrapper__text{
+    width: 100%;
+    max-width: 540px;
+    text-align: center;
+
+    .title{
+        @include font(calc(min(max(1.5rem, 1.35rem + 0.75vw), 2.25rem)
+        ), $fw__light, $col__white);
+        margin-bottom: 13px;
+        letter-spacing: 0.17px;
+        line-height: 36px;
+        transition: $transition;
+        
+        &__secondary{
+            @include font(inherit, $fw__medium, inherit);
+        }
+    }
+
+    .lead-text{
+        @include font(calc(min(max(0.9375rem, 0.9rem + 0.1875vw), 1.125rem)), initial, $col__white);
+        letter-spacing: 0.1px;
+        line-height: 25px;
+        margin-bottom: 76px;
+        text-shadow: 1px 1px 10px #333;
+        transition: $transition;
+    }
+}
+
+.card__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1110px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .card{
+        background-color: rgba(255,255,255, .7);
+        max-width: 350px;
+        min-height: 13.875rem;
+        border-radius: $br__radius;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: 0;
+        z-index: 1;
+        overflow: hidden;
+        transform: scale(1);  
+        transition: $transition;
+
+        &.dark__theme--background{
+            background-color: $col__header;
+        }
+
+        &::before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-radius: 0 $br__radius $br__radius 0;
+            width: 0%;
+            height: 4px;
+            transition: $transition;
+        }
+
+        &::after{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-radius: $br__radius 0 0 $br__radius;
+            width: 0%;
+            height: 4px;
+            transition: $transition;
+        }
+
+        &:hover::before,
+        &:hover::after{
+            width: 100%;
+        }
+
+        &:hover{
+          transform: scale(1.1);
+
+          img{
+            animation: iconRotate .4s ease-in-out forwards;
+          }
+        }
+
+        &__title{
+            @include font(1.25rem, $fw__medium, $col__lead-title);
+            margin-bottom: 1px;
+            line-height: 30px;
+            z-index: 333;
+
+            &.dark__theme--text{
+                color: $col__white;
+            }
+        }
+
+        &__text{
+            @include font(calc(min(max(0.8125rem, 0.775rem + 0.1875vw), 1rem)), $fw__regular, inherit);
+            transition: $transition;
+
+            &.dark__theme--text{
+                color: $col__white;
+            }
+        }
+
+        img{
+            margin-top: auto;
+            margin-left: auto;
+        }
+
+        &.supervisor::before,
+        &.supervisor::after{
+            background: $col__supervisor;
+        }
+
+        &.team-builder::before,
+        &.team-builder::after{
+            background: $col__team-builder;
+        }
+
+        &.karma::before,
+        &.karma::after{
+            background: $col__karma;
+        }
+
+        &.calculator::before,
+        &.calculator::after{
+            background: $col__calculator;
+        }
+
+        &.active{
+            background-color: rgba(255,255,255, 1);
+        }
+
+    }
+
+    .cards__flex{
+        display: flex;
+        flex-direction: column;
+        gap: 29px;
+    }
+
+}
+
+
+@media (min-width: 534px){
+
+    body{
+        background-image: url('images/bg-desktop.jpg');
+    }
+
+    .card__wrapper{
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .card{
+            flex: 1 1 220px;
+        }
+
+        .cards__flex{
+            order: 1;
+            flex-direction: row;
+        }
+    }
+}
+
+@media (min-width: 920px){
+    
+    .card__wrapper{
+
+        .card{
+            flex: 1 1 220px;
+        }
+
+        .cards__flex{
+            order: 0;
+            flex-direction: column;
+        }
+    }
+}

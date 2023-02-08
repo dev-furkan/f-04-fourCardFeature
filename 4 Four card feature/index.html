@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FO | Four Card Feature</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <header class="header">
+            <div class="creator">
+                <a href="https://www.frontendmentor.io/profile/dev-furkan" target="_blank">?</a>
+            </div>
+            <div class="switch-theme__inner-container">
+                <img src="images/moon.svg"/>
+                <div class="switch-theme__toggle-switch" role="switch" aria-checked="false" aria-label="Switch between dark and light theme"></div>
+                <img src="images/sun.svg"/>
+            </div>
+    </header>
+
+    <main>
+    
+        <section class="wrapper__text">
+            <h1 class="title ">
+                Reliable, efficient delivery <span class="title__secondary">Powered by Technology</span>
+            </h1>
+            <p class="lead-text">
+                Our Artificial Intelligence powered tools use millions of project data points to ensure that your project is successful
+            </p>
+        </section>  
+        
+        <!-- cards START -->
+        <div class="card__wrapper">
+            <section class="card supervisor active">
+              <h2 class="card__title">
+                Supervisor
+              </h2>
+              <p class="card__text ">
+                Monitors activity to identify project roadblocks
+              </p>
+              <img src="images/icon-supervisor.svg" alt="" width="57" height="57">
+            </section>
+
+            <!-- second col START -->
+            <div class="cards__flex">
+                <section class="card team-builder">
+                    <h2 class="card__title">
+                        Team Builder
+                    </h2>
+                    <p class="card__text">
+                        Scans our talent network to create the optimal team for your project
+                    </p>
+                    <img src="images/icon-team-builder.svg" alt="" width="57" height="57">
+                </section>
+                <section class="card karma">
+                    <h2 class="card__title">
+                        Karma
+                    </h2>
+                    <p class="card__text">
+                        Regularly evaluates our talent to ensure quality
+                    </p>
+                    <img src="images/icon-karma.svg" alt="" width="57" height="57">
+                </section> 
+            </div>
+            <!-- second col END -->
+
+            <section class="card calculator">
+                <h2 class="card__title">
+                    Calculator
+                </h2>
+                <p class="card__text">
+                    Uses data from past projects to provide better delivery estimates
+                </p>
+                <img src="images/icon-calculator.svg" alt="" width="57" height="57">
+            </section> 
+        </div>
+        <!-- cards END -->
+    </main>
+
+    <script src="app.js"></script>    
+</body>
+</html>
