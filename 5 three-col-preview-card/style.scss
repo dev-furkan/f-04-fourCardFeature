@@ -1,0 +1,236 @@
+
+$col__white: hsl(0, 0%, 100%);
+$col__blue: #03045e;
+$col__materialRed: hsl(356, 91%, 29%);
+$col__materialPurple: #3a0ca3;
+
+
+$ff__BigShoulders: 'Big Shoulders Display', cursive;
+$ff__Lexend: 'Lexend Deca', sans-serif;
+$fw__regular: 400;
+$fw__bold: 700;
+
+$br__card: 0.5rem;
+$br__cta: 1.56rem;
+
+
+@mixin font($family,$size, $weight){
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+// Furkan's custom reset
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: none;
+  overflow-wrap: break-word;
+}
+
+a:link,
+a:hover{
+    text-decoration: none;
+    display: inline-block;
+}
+
+html, body {
+  height: 100%;
+}
+body,
+main{
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, 
+button, 
+textarea, 
+select {
+  font: inherit;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ol,
+ul{
+    list-style: none;
+}
+
+html,
+body{
+    height: 100%;
+}
+
+body{
+    background-color: #001d3d;
+}
+
+main{
+    padding: 5.5rem 1.5rem;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-brands__container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 920px;
+    min-height: 500px;
+}
+
+.car-brand{
+    padding: 48px;
+    color: $col__white;
+
+    &:first-child{
+        border-top-left-radius: $br__card;
+        border-top-right-radius: $br__card;
+    }
+
+    &:last-child{
+        border-bottom-left-radius: $br__card;
+        border-bottom-right-radius: $br__card;
+    }
+
+
+    &.sedan{
+        background-color: $col__blue
+    }
+    &.suv{
+        background-color: $col__materialRed;
+    }
+    &.luxury{
+        background-color: $col__materialPurple;
+    }
+
+    & img{
+        margin-bottom: 35px;
+    }
+
+    &__title{
+        transition: all .4s ease-in-out;
+        @include font($ff__BigShoulders, calc(min(max(2.5rem, 2.4375rem + 0.3125vw), 2.8125rem)), $fw__bold);
+        margin-bottom: 25px;
+        text-transform: uppercase;
+    }
+
+    &__info{
+        @include font($ff__Lexend, 0.94rem, $fw__regular);
+        line-height: 1.56;
+        mix-blend-mode: normal;
+        opacity: .9;
+        margin-bottom: 25px;
+    }
+
+    &__cta{
+        @include font($ff__Lexend, 0.9rem, $fw__regular);
+        border: none;
+        border-radius: $br__cta;
+        width: 100%;
+        max-width: 146px; 
+        min-height: 3rem;
+        border: 1px solid white;
+        transition: all .2s ease-in-out;
+
+        &.sedan{color: $col__blue};
+        &.suv{color: $col__materialRed};
+        &.luxury{color: $col__materialPurple};
+
+        &:hover{
+            color: white;
+            background-color: transparent;
+            cursor: pointer;
+        }
+    }
+}
+
+.creation{
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    background: hsl(211, 43%, 08%);
+    color: hsl(0, 0%, 100%);
+    padding: 10px;
+    width: 327px;
+    flex-wrap: wrap;
+    font-family: monospace;
+    overflow: hidden;
+    z-index: 1;
+
+    .author{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button{
+        margin-top: 10px;
+        padding: 5px;
+        flex: 1;
+    }
+
+    & .author,
+    & a{
+        flex: 1 1 340px;
+    }
+
+    a{
+        color: white;
+        background: $col__materialPurple;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid hsl(211, 43%, 08%);
+
+        &:hover{
+            background-color: hsl(211, 43%, 08%);
+            border-color: white;
+        }
+    }
+}
+
+@media (min-width: 740px){
+
+    body{
+        background-image: url("images/bg-desktop.jpg");
+        background-size: cover;
+        opacity: .9;
+    }
+
+    .car-brands__container{
+        display: flex;
+        flex-direction: row;
+        // width: 100%;
+        // max-width: 920px;
+        // min-height: 500px;
+    }
+
+    .car-brand{
+        padding: 48px;
+        color: $col__white;
+    
+        &:first-child{
+            border-top-left-radius: $br__card;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: $br__card;
+        }
+    
+        &:last-child{
+            border-bottom-left-radius: 0;
+            border-top-right-radius: $br__card;
+            border-bottom-right-radius: $br__card;
+        }
+    }
+}

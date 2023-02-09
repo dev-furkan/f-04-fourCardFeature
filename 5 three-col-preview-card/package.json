@@ -1,0 +1,13 @@
+{
+  "name": "5-three-col-preview-card",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass style.scss style.css -w"
+  },
+  "author": "Furkan O",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
+}
