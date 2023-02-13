@@ -1,0 +1,204 @@
+$ff__inter: 'Inter', sans-serif;
+$ff__lexend: 'Lexend Deca', sans-serif;
+
+$col__body: hsl(233, 47%, 7%);
+$col__card: hsl(244, 38%, 16%);
+$col__mask: hsla(277, 64%, 61%, 1);
+$col__white: hsl(0, 0%, 100%);
+
+$fw__bold: 700;
+$fw__normal: 400;
+
+$br__card: 0.5rem;
+
+$fs__title: calc( min( max(1.75rem, 1.61rem + 0.71vw), 2.25rem) );
+$fs__lead-text: 0.9375rem;
+$fs__stats-heading: 1.5rem;
+$fs__stats-label: 0.75rem;
+
+$mr__heading: calc(min(max(1rem, 0.839rem + 0.803vw),1.5625rem));
+$mr__lead-text: calc(min(max(2.5rem, 1.93rem + 2.86vw), 4.5rem));
+
+$transition: all 0.6s ease-in-out;
+
+@mixin font($size, $weight){
+    font-size: $size;
+    font-weight: $weight;
+}
+
+// Furkan's custom reset
+*, *::before, *::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+background-color: none;
+overflow-wrap: break-word;
+border: none;
+}
+
+a:link,
+a:hover{
+text-decoration: none;
+display: inline-block;
+}
+
+html, body {
+height: 100%;
+}
+body,
+main{
+line-height: 1.7;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+input, 
+button, 
+textarea, 
+select {
+font: inherit;
+}
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+ol,
+ul{
+list-style: none;
+}
+
+body{
+    background-color: $col__body;
+}
+
+main{
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 88px 24px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    max-width: 1110px;
+    width: 100%;
+    background-color: $col__card;
+    box-shadow: 0px 20px 20px -10px rgba(23, 25, 41, 0.203087);
+    border-radius: $br__card;
+    overflow: hidden;
+}
+
+.decoration{
+    max-width: 540px;
+    width: 100%;
+    min-height: 15rem; //240px
+    background-image: url("images/image-header-mobile.jpg");
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 0;
+
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $col__mask;
+        mix-blend-mode: multiply;
+    }
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 40px 32px 32px;
+    font-family: $ff__inter;
+    color: $col__white;
+    transition: $transition;
+
+    &__heading{
+        width: 100%;
+        @include font($fs__title, $fw__bold);
+        margin-bottom: $mr__heading;
+
+        &--color{
+            color: $col__mask;
+        }
+    }
+    &__lead-text{
+        max-width: 374px;
+        width: 100%;
+        @include font($fs__lead-text, $fw__normal);
+        opacity: 0.75;
+        margin-bottom: $mr__lead-text;
+    }
+}
+
+.stats{
+    max-width: 352px;
+    width: 100%;
+}
+
+.stat__container{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    &:not(.stat__container:last-child){
+        margin-bottom: 24px;
+    }
+
+    &-heading{
+        @include font($fs__stats-heading, $fw__bold);
+    }
+    &-label{
+        @include font($fs__stats-label, $fw__normal);
+        opacity: 0.6;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}
+
+
+@media (min-width: 588px){
+
+    .card{
+        flex-direction: row;
+        max-height: 446px;
+    }
+
+    .content{
+        justify-content: center;
+        padding: 72px 95px 58px 72px;
+
+        &__lead-text{
+            text-align: left;
+        }
+    }
+
+    .decoration{
+        background-image: url("images/image-header-desktop.jpg");
+        order: 2;
+        margin-left: auto;
+    }
+
+    .stats{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}

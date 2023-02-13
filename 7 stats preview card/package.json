@@ -1,0 +1,10 @@
+{
+  "name": "7-stats-preview-card",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass style.scss style.css -w"
+  },
+  "author": "Furkan O",
+  "license": "MIT"
+}
