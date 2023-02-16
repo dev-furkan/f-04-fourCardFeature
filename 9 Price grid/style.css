@@ -1,0 +1,216 @@
+:root{
+    /*? Colours */
+    --col-teal: hsla(179, 62%, 43%, 1);
+    --col-yellowGreen: hsla(71, 73%, 54%, 1);
+    --col-lightGray: hsla(218, 22%, 67%, 1);
+    --col-white: hsla(0, 0%, 100%, 1);
+
+    /*? Font / size */
+    --ff: 'Karla', sans-serif;
+    --fs-top-heading: clamp(1.25rem, 1.162rem + 0.376vw, 1.5rem);
+    --fs-top-highlgiht: clamp(0.9375rem, 0.871rem + 0.282vw, 1.125rem);
+    --fs-top-info: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);
+
+    /*? Font weight */
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+    /*? Border-radius */
+    --br: 0.3125rem;
+
+    /*? Transition */
+    --transition: all .6s ease-in-out;
+}
+
+/* Furkan's custom reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: none;
+    overflow-wrap: break-word;
+    border: none;
+}
+
+a:link,
+a:hover{
+    text-decoration: none;
+    display: inline-block;
+}
+
+html, body {
+    height: 100%;
+}
+body,
+main{
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, 
+button, 
+textarea, 
+select {
+    font: inherit;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ol,
+ul{
+    list-style: none;
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 72px 32px 62px;
+    max-width: 1440px;
+    min-height: 100%;
+    background-image: url("images/bg-mobile.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card{
+    max-width: 635px;
+    min-height: 475px;
+    font-family: var(--ff);
+    background-color: var(--col-white);
+    box-shadow: 0px 15px 30px rgba(0, 81, 171, 0.148847);
+    border-radius: var(--br);
+    overflow: hidden;
+}
+
+.card__top{
+    padding: 28px 24px 32px;
+    display: flex;
+    flex-direction: column;
+}
+.card__top-heading{
+    font-size: var(--fs-top-heading);
+    font-weight: var(--fw-bold);
+    color: var(--col-teal);
+    margin-bottom: 24px;
+}
+.card__top-text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.card__top-text-highlight{
+    font-size: var(--fs-top-highlgiht);
+    font-weight: var(--fw-bold);
+    color: var(--col-yellowGreen);
+    line-height: 20px;
+}
+.card__top-text-info{
+    font-size: var(--fs-top-info);
+    font-weight: var(--fw-normal);
+    color: var(--col-lightGray);
+    line-height: 26px;
+}
+
+.card__bottom{
+    display: flex;
+    flex-direction: column;
+}
+
+.card__bottom-left{
+    background-color: var(--col-teal);
+    padding: 24px;
+    color: var(--col-white);
+    display: flex;
+    flex-direction: column;
+}
+.card__bottom-left-heading{
+    font-weight: var(--fw-bold);
+    font-size: 1.125rem; /* 18px */
+    margin-bottom: 18px;
+}
+.card__bottom-left-price-container{
+    display: flex;
+    margin-bottom: 4px;
+}
+.card__bottom-left-price{
+    font-size: 2rem;
+    font-weight: var(--fw-bold);
+    letter-spacing: -0.4px;
+}
+.card__bottom-left-price-term{
+    font-size: 1rem;
+    font-weight: var(--fw-normal);
+    color: var(--col-white);
+    opacity: 0.5;
+    margin-left: 11px;
+}
+.card__bottom-left-full-access{
+    letter-spacing: -0.2px;
+    margin-bottom: 26px;
+}
+.card__bottom-left a{
+    text-align: center;
+    padding: 15px;
+    background-color: var(--col-yellowGreen);
+    color: var(--col-white);
+    font-weight: var(--fw-bold);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.0973011);
+}
+.card__bottom-left a:hover{
+    background-color: hsla(71, 73%, 54%, .8);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.0973011);
+}
+
+.card__bottom-right{
+    background-color: var(--col-teal);
+    opacity: .9;
+    padding: 24px;
+    color: var(--col-white);
+}
+.faq-heading{
+    font-weight: var(--fw-bold);
+    font-size: 1.125rem; /* 18px */
+    margin-bottom: 18px;
+    letter-spacing: -0.22px;
+}
+.faq__info{
+    font-size: 0.875rem; /* 14px */
+    font-weight: var(--fw-normal);
+    line-height: 20px;
+}
+
+.card__top,
+.card__top-heading,
+.card__top-text-highlight,
+.card__top-text-info,
+.card__bottom-left,
+.card__bottom-right{
+    transition: var(--transition);
+}
+
+@media (min-width: 580px){
+    .card__bottom{
+        flex-direction: row;
+    }
+    .card__bottom-left,
+    .card__bottom-right{
+        flex: 1;
+    }
+}
+
+@media (min-width: 720px){
+    main{
+        background-image: url("images/bg-desktop.jpg");
+    }
+}
